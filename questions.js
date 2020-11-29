@@ -1,9 +1,9 @@
 var theQuiz = document.getElementById(theQuiz);
 var theQuestion = document.getElementById(theQuestion);
-var answer = document.getElementById(answer);
-var options = document.getElementsByName(label);
+// var answer = document.getElementById(answer);
+var theQuestions = document.createElement("P");
+var options = document.createElement("RADIO");
 
-answer.textContent = 'Answer One';
 
 const myQuestions = [
     {
@@ -37,12 +37,12 @@ const myQuestions = [
         correctAnswer: "D"
     },
     {
-        question: "Commonly used data types DO NOT include:",
+        question: "A great tool for debugging is:",
         answers: {
-            A: "Strings",
-            B: "Alerts",
-            C: "Booleans",
-            D: "Numbers",
+            A: "Console Log",
+            B: "An array",
+            C: "Prompt",
+            D: "Who needs to debug?",
         },
         correctAnswer: "B"
     },
@@ -54,6 +54,6 @@ const myQuestions = [
             C: "Quotation Marks",
             D: "They don't need to be enclosed",
         },
-        correctAnswer: "B"
+        correctAnswer: "C"
     },
 ]
