@@ -12,6 +12,7 @@ myButton.addEventListener("click", function () {
         return;
     } 
     isRunning = true;
+    document.getElementById("theQuiz").classList.remove("hidden");
     // secondsLeft = 30;
     var timerInterval = setInterval(function() {
       secondsLeft--;
@@ -28,6 +29,7 @@ myButton.addEventListener("click", function () {
     secondsLeft = 0 + " - Time's Up!"
     time.textContent = secondsLeft;
     isRunning = false;
+    document.getElementById("theQuiz").classList.add("hidden");
     
   }
   

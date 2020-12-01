@@ -1,0 +1,13 @@
+.hidden {
+    display: none;
+}
+#centerPanel {
+    padding: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 10px;
+    border-color: black;
+    border-style: groove;
+    background-color: lightpink;
+}

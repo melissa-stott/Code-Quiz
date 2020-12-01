@@ -1,10 +1,20 @@
-var theQuiz = document.getElementById(theQuiz);
-var theQuestion = document.getElementById(theQuestion);
+var theQuiz = document.getElementById("theQuiz");
+var theQuestion = document.getElementById("theQuestion");
+var answerResult = document.getElementById("answerResult");
 // var answer = document.getElementById(answer);
 var theQuestions = document.createElement("P");
-var options = document.createElement("RADIO");
+var options = document.getElementsByName("question1");
+var choiceA = document.getElementById("answerA");
+var choiceALabel = document.getElementById("answerALabel");
+var choiceB = document.getElementById("answerB");
+var choiceBLabel = document.getElementById("answerBLabel");
+var choiceC = document.getElementById("answerC");
+var choiceCLabel = document.getElementById("answerCLabel");
+var choiceD = document.getElementById("answerD");
+var choiceDLabel = document.getElementById("answerDLabel");
 
-
+theQuestion.style.fontSize = '20px';
+theQuestion.style.fontFamily = 'Arial, bold';
 const myQuestions = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -57,3 +67,28 @@ const myQuestions = [
         correctAnswer: "C"
     },
 ]
+
+function populateAnswers (index){
+    choiceALabel.innerText=myQuestions[index].answers.A;
+    choiceBLabel.innerText=myQuestions[index].answers.B;
+    choiceCLabel.innerText=myQuestions[index].answers.C;
+    choiceDLabel.innerText=myQuestions[index].answers.D;
+    theQuestion.innerText=myQuestions[index].question;
+}
+
+var state = 0;
+populateAnswers(state);
+
+choiceA.addEventListener("click", getResult);
+choiceB.addEventListener("click", getResult);
+choiceC.addEventListener("click", getResult);
+choiceD.addEventListener("click", getResult);
+
+function getResult(event){
+    console.log(event.srcElement.id);
+
+    state++;
+    if (state < 5) {
+        populateAnswers(state);
+    }
+}
