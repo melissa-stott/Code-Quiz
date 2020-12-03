@@ -3,6 +3,8 @@
 }
 #centerPanel {
     padding: 100px;
+    margin-left: 150px;
+    margin-right: 150px;
     display: flex;
     justify-content: center;
     align-items: center;

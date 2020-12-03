@@ -54,7 +54,7 @@ const myQuestions = [
             C: "Prompt",
             D: "Who needs to debug?",
         },
-        correctAnswer: "B"
+        correctAnswer: "A"
     },
     {
         question: "Strings must be enclosed in _____, when being applied to a variable:",
@@ -74,6 +74,9 @@ function populateAnswers (index){
     choiceCLabel.innerText=myQuestions[index].answers.C;
     choiceDLabel.innerText=myQuestions[index].answers.D;
     theQuestion.innerText=myQuestions[index].question;
+    answerResult.innerText=myQuestions[index].correctAnswer;
+
+    
 }
 
 var state = 0;
@@ -87,6 +90,7 @@ choiceD.addEventListener("click", getResult);
 function getResult(event){
     console.log(event.srcElement.id);
 
+    
     state++;
     if (state < 5) {
         populateAnswers(state);
