@@ -1,6 +1,7 @@
 .hidden {
     display: none;
 }
+/* adds styling to quiz element */
 #centerPanel {
     padding: 100px;
     margin-top: 200px;
@@ -14,6 +15,7 @@
     border-style: groove;
     background-color: lightpink;
 }
+/* hides the decrement button from the screen */
 #decrButton {
     display: none;
 }

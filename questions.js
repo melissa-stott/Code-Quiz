@@ -15,6 +15,8 @@ var choiceDLabel = document.getElementById("answerDLabel");
 
 theQuestion.style.fontSize = '20px';
 theQuestion.style.fontFamily = 'Arial, bold';
+
+// created an array to store questions, answers, and correct answer
 const myQuestions = [
     {
         question: "Commonly used data types DO NOT include:",
@@ -64,10 +66,11 @@ const myQuestions = [
             C: "Quotation Marks",
             D: "They don't need to be enclosed",
         },
-        correctAnswer: "answerC"
+        correctAnswer: "C"
     },
 ]
 
+// displays questions and answer options
 function populateAnswers (index){
     choiceALabel.innerText=myQuestions[index].answers.A;
     choiceBLabel.innerText=myQuestions[index].answers.B;
@@ -79,6 +82,7 @@ function populateAnswers (index){
 var state = 0;
 populateAnswers(state);
 
+// function to let user know if they answered correctly. displays on the screen.
 function getResult(event){
     if (event.srcElement.id == myQuestions[state].correctAnswer) {
         answerResult.innerText = "You are correct";
@@ -94,6 +98,7 @@ function getResult(event){
     }
     else
     {
+        // stops the game once all questions are answered
         var score = stopTimer();
         console.log("score: " + score);
         choiceA.removeEventListener("click", getResult);
