@@ -24,7 +24,7 @@ const myQuestions = [
             C: "Booleans",
             D: "Numbers",
         },
-        correctAnswer: "B"
+        correctAnswer: "answerB"
     },
     {
         question: "The condition of an if/else statement is enclosed in:",
@@ -34,7 +34,7 @@ const myQuestions = [
             C: "Parantheses",
             D: "Quotation Marks",
         },
-        correctAnswer: "C"
+        correctAnswer: "answerC"
     },
     {
         question: "Arrays in JavaScript can be used to store:",
@@ -44,7 +44,7 @@ const myQuestions = [
             C: "Strings",
             D: "All of the above",
         },
-        correctAnswer: "D"
+        correctAnswer: "answerD"
     },
     {
         question: "A great tool for debugging is:",
@@ -54,7 +54,7 @@ const myQuestions = [
             C: "Prompt",
             D: "Who needs to debug?",
         },
-        correctAnswer: "A"
+        correctAnswer: "answerA"
     },
     {
         question: "Strings must be enclosed in _____, when being applied to a variable:",
@@ -64,7 +64,7 @@ const myQuestions = [
             C: "Quotation Marks",
             D: "They don't need to be enclosed",
         },
-        correctAnswer: "C"
+        correctAnswer: "answerC"
     },
 ]
 
@@ -74,25 +74,31 @@ function populateAnswers (index){
     choiceCLabel.innerText=myQuestions[index].answers.C;
     choiceDLabel.innerText=myQuestions[index].answers.D;
     theQuestion.innerText=myQuestions[index].question;
-    answerResult.innerText=myQuestions[index].correctAnswer;
-
-    
 }
 
 var state = 0;
 populateAnswers(state);
 
-choiceA.addEventListener("click", getResult);
-choiceB.addEventListener("click", getResult);
-choiceC.addEventListener("click", getResult);
-choiceD.addEventListener("click", getResult);
-
 function getResult(event){
-    console.log(event.srcElement.id);
+    if (event.srcElement.id == myQuestions[state].correctAnswer) {
+        answerResult.innerText = "You are correct";
+    } else {
+        secondsLeft -= 10;
+        answerResult.innerText = "That answer is incorrect";
+    }
 
     
     state++;
     if (state < 5) {
         populateAnswers(state);
+    }
+    else
+    {
+        var score = stopTimer();
+        console.log("score: " + score);
+        choiceA.removeEventListener("click", getResult);
+        choiceB.removeEventListener("click", getResult);
+        choiceC.removeEventListener("click", getResult);
+        choiceD.removeEventListener("click", getResult);
     }
 }
